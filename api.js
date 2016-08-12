@@ -34,7 +34,6 @@ module.exports = function(app, express, QB) {
                 } else {
                     console.log(JSON.stringify(err));
                     res.redirect('/register'); 
-                    //test
                 }
             });
         } catch (e) {

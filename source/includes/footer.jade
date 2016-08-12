@@ -1,0 +1,32 @@
+footer.footer
+  .container.text-center
+    | This is the footer
+//.navbar.navbar-default.navbar-fixed-bottom
+//      .container
+// jQuery (necessary for Bootstrap's JavaScript plugins)
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+// Include all compiled plugins (below), or include individual files as needed
+script(src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js')
+script(type='text/javascript', src='http://maps.googleapis.com/maps/api/js?libraries=places&language=en')
+script(src='js/bootstrap.min.js')
+script(src='js/bootstrap-editable.js')
+script(src='js/jquery.geocomplete.js')
+script(src='js/quickblox.min.js')
+script(src='js/config.js')
+script(src='js/app.js')
+script.
+  $(function() {
+  $("#geocomplete").geocomplete()
+  .bind("geocode:result", function(event, result) {
+  $.log("Result: " + result.formatted_address);
+  })
+  .bind("geocode:error", function(event, status) {
+  $.log("ERROR: " + status);
+  })
+  .bind("geocode:multiple", function(event, results) {
+  $.log("Multiple: " + results.length + " results found");
+  });
+  });
+
+  $.fn.editable.defaults.mode = 'inline';
+

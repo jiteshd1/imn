@@ -1,0 +1,122 @@
+doctype html
+html(lang='en')
+  include ./includes/header.jade
+  body
+    nav.navbar.navbar-default
+      .container-fluid
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#') Interview Me Now
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.active
+              a(href='#')
+                | Home
+                span.sr-only (current)
+            li
+              a(href='#')
+                | About
+                span.sr-only (current)
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='#') Recruiters > 
+        // /.navbar-collapse
+      // /.container-fluid
+    // START LIGHTBOXES
+    // START LIGHTBOXES
+    .lightbox-info-popup
+      #UserEmailLightbox.modal.fade
+        .modal-dialog
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+              h3.modal-title.color-light-blue.noto-sans User Email Requirements
+            .modal-body
+              p.font-size-fourtheen-px.noto-sans Your account email must fullfil the following requirements:
+              .display-block
+                ol.segoe.font-size-fourtheen-px
+                  li It must unique
+                  li It must be a valid email account
+                  li Some other reason
+                  li ...
+            .modal-footer
+              button.btn.btn-danger(type='button', data-dismiss='modal')
+                i.fa.fa-close.padding-right-five-px
+                | Close
+      #ForgotPasswordLightbox.modal.fade
+        .modal-dialog
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+              h3.modal-title.color-light-blue.noto-sans Forgot Password?
+            .modal-body
+              p.font-size-fourtheen-px.noto-sans How to reset access to your account:
+              .display-block
+                ol.segoe.font-size-fourtheen-px
+                  li Provide your account's email address
+                  li It must be a valid email account
+                  li Some other reason
+                  li ...
+            .modal-footer
+              button.btn.btn-danger(type='button', data-dismiss='modal')
+                i.fa.fa-close.padding-right-five-px
+                | Close
+      #CVVLightbox.modal.fade
+        .modal-dialog
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+              h3.modal-title.color-light-blue.noto-sans Password Requirements
+            .modal-body
+              p.font-size-fourtheen-px.noto-sans Help make your ProPay account more secure by following there requirements:
+              .display-block
+                ol.segoe.font-size-fourtheen-px
+                  li At least 1 upper-case letter (A-Z)
+                  li At least 1 lower-case letter (a-z)
+                  li At least 1 number (0-9)
+                  li Must be between 8-19 characters
+                  li Optional: Spaces and keyword symbols (! @ # $ % ^ & * _)
+            .modal-footer
+              button.btn.btn-danger(type='button', data-dismiss='modal')
+                i.fa.fa-close.padding-right-five-px
+                | Close
+    // END LIGHTBOXES
+    link(href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', rel='stylesheet')
+    #SignInForm.modal-dialog
+      .modal-content
+        .modal-header
+          h3#myModalLabel.modal-title
+            i.fa.fa-lock
+            |  Secure Account Login
+        .modal-body
+          .row
+            .col-sm-12
+              p(style='font-size: 14px; padding-bottom: 8px;')
+                | Enter must enter a registered Email & Password combination to access your account:
+              .well
+                form#loginForm(method='POST', action='/api/1/signin', novalidate='novalidate')
+                  .form-group
+                    .input-group
+                      span#UserEmail.input-group-addon
+                        i.fa.fa-user(title='Enter Your Email')
+                      input#username.form-control(type='email', name='username', value='', required='', title='Please enter you username', placeholder='example@gmail.com')
+                    span.help-block
+                  .form-group
+                    .input-group
+                      span#UserPasswordMatch.input-group-addon
+                        i.fa.fa-lock(title='Choose password')
+                      input#password.form-control(type='password', name='password', value='', required='', title='Enter your password', placeholder='Enter password')
+                  button#login.btn.btn-success.btn-block(type='submit')
+                    | Login 
+                    i.icon-refresh.icon-spin
+              p(style='text-align: center;')
+                a(href='/register', title='Register here') Register here
+                a(href='/forgotPassword', title='Forgot password?') Forgot password?
+  include ./includes/footer.jade
+

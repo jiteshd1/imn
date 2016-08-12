@@ -1,0 +1,36 @@
+{
+  "name": "imn",
+  "version": "1.0.0",
+  "description": "Interview Me Now",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "stylus source/stylesheets/index.styl -o static/css",
+    "watch-css": "stylus source/stylesheets/index.styl -o static/css -w",
+    "build-less": "lessc --clean-css source/static/css/lesscss/bootstrap.less source/static/css/bootstrap.min.css",
+    "clean": "rm -rf static/css && mkdir -p static/css",
+    "build": "npm run clean && npm run build-css",
+    "watch": "npm run clean && npm run watch-css & nodemon server -e js,jade",
+    "open-browser": "open http://localhost:3000",
+    "start": "nodemon server"
+  },
+  "keywords": [
+    "Interview"
+  ],
+  "author": "Jitesh Dineschandra",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-livereload": "0.0.24",
+    "jade": "^1.11.0",
+    "mocha": "^3.0.2",
+    "mocha.parallel": "^0.12.0",
+    "morgan": "^1.7.0",
+    "node-horseman": "^3.1.1",
+    "nodemon": "^1.9.2",
+    "phantomjs": "^2.1.7",
+    "should": "^11.0.0",
+    "stylus": "^0.54.5",
+    "zombie": "^4.2.1"
+  }
+}

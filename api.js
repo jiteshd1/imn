@@ -33,7 +33,8 @@ module.exports = function(app, express, QB) {
                     res.redirect('/profile');
                 } else {
                     console.log(JSON.stringify(err));
-                    res.redirect('/register');
+                    res.redirect('/register'); 
+                    //test
                 }
             });
         } catch (e) {
